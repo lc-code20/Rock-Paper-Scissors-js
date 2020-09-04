@@ -29,11 +29,10 @@
       }
     }
 
-    //function rulesLose(move){
-
-    //}
-
     function playRound(playerSelection, computerSelection){
+
+      console.log('Your move is: ' + playerSelection + '. Pc is: ' + computerSelection);
+
       if (playerSelection===computerSelection){
         return 'It is a draw!' 
       }
@@ -43,8 +42,29 @@
         return ('You win! ' + rulesWin(playerSelection));
       }
       else {
-        return ('You lose ' + rulesWin(computerSelection));
+        return ('You lose. ' + rulesWin(computerSelection));
       }
+
+    }
+
+    //const computerSelection = computerPlay();
+
+    function game(){
+      for (i=0;i<5;i++){
+        let input = window.prompt("Your move: ").toLowerCase();
+
+        while (input != 'rock'&&
+          input != 'paper'&&
+          input != 'scissors'){
+          input = window.prompt("Your move needs to be rock, paper or scissors: ").toLowerCase();
+        }
+
+        const computerSelection = computerPlay();
+
+        console.log(playRound(input, computerSelection));
+
+      }
+
 
     }
 
