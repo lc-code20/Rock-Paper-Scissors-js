@@ -39,20 +39,27 @@
       if (playerSelection==='rock' && computerSelection==='scissors' ||
         playerSelection==='paper' && computerSelection==='rock'||
         playerSelection==='scissors' && computerSelection==='paper'){
+        playerPoints++;
         return ('You win! ' + rulesWin(playerSelection));
       }
       else {
+        computerPoints++;
         return ('You lose. ' + rulesWin(computerSelection));
       }
 
     }
 
-    //const computerSelection = computerPlay();
+    let playerPoints = 0
+    let computerPoints = 0
 
     function game(){
-      for (i=0;i<5;i++){
-        let input = window.prompt("Your move: ").toLowerCase();
+      
 
+      for (i=0;i<5;i++){
+        console.log('Round '+ (i+1))
+
+        let input = window.prompt("Your move: ").toLowerCase();
+        
         while (input != 'rock'&&
           input != 'paper'&&
           input != 'scissors'){
@@ -61,10 +68,21 @@
 
         const computerSelection = computerPlay();
 
-        console.log(playRound(input, computerSelection));
+        console.log(playRound(input, computerSelection))
 
       }
 
+      console.log('Game end ');
+
+      if (playerPoints>computerPoints){
+        console.log('You win!')
+      } else if (playerPoints === computerPoints){
+        console.log('Its a draw!')
+      } else {
+        console.log("You lose")
+      }
+
+      console.log('Your points: ' + playerPoints + '. Computer points: ' + computerPoints)
 
     }
 
