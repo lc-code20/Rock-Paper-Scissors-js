@@ -9,8 +9,47 @@
   <P>play Rock Paper Scissors in the console</P>
 
   <script>
-    // Your JavaScript goes here!
-    console.log("Hello, World!")
+    console.log("Start!")
+
+    let moves = ['rock','paper','scissors']
+
+    function computerPlay(){
+      return moves[Math.floor(Math.random()*3)];
+    }
+    
+    function rulesWin(move){
+      if (move==='rock'){
+        return 'Rock beats Paper';
+      }
+      if (move==='paper'){
+        return 'Paper beats Rock';
+      }
+      else {
+        return 'Scissors beats Paper';
+      }
+    }
+
+    //function rulesLose(move){
+
+    //}
+
+    function playRound(playerSelection, computerSelection){
+      if (playerSelection===computerSelection){
+        return 'It is a draw!' 
+      }
+      if (playerSelection==='rock' && computerSelection==='scissors' ||
+        playerSelection==='paper' && computerSelection==='rock'||
+        playerSelection==='scissors' && computerSelection==='paper'){
+        return ('You win! ' + rulesWin(playerSelection));
+      }
+      else {
+        return ('You lose ' + rulesWin(computerSelection));
+      }
+
+    }
+
+
+
 
 
   </script>
